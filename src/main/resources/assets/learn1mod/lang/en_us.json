@@ -1,5 +1,8 @@
 {
   "item.learn1mod.bismuth": "Bismuth",
 
-  "block.learn1mod.bismuth_block": "Block of Bismuth"
+  "block.learn1mod.bismuth_block": "Block of Bismuth",
+
+  "creativetab.learn1mod.bismuth_items": "Bismuth Items",
+  "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks"
 }
