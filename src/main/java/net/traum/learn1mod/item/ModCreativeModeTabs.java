@@ -9,6 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.block.custom.MagicBlock;
 
 import java.util.function.Supplier;
 
@@ -21,7 +22,8 @@ public class ModCreativeModeTabs {
                     .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                     .title(Component.translatable("creativetab.learn1mod.bismuth_items"))
                     .displayItems((params, output) -> {
-                        output.accept(ModItems.BISMUTH.get());
+                        output.accept(ModItems.BISMUTH);
+                        output.accept(ModItems.CHISEL);
                     }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB = CREATIVE_MODE_TAB.register(
@@ -30,7 +32,8 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID, "bismuth_items_tab"))
                     .title(Component.translatable("creativetab.learn1mod.bismuth_blocks"))
                     .displayItems((params, output) -> {
-                        output.accept(ModBlocks.BISMUTH_BLOCK.get());
+                        output.accept(ModBlocks.BISMUTH_BLOCK);
+                        output.accept(ModBlocks.MAGIC_BLOCK);
                     }).build());
 
     public static void register(IEventBus eventBus) {
