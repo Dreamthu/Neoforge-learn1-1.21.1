@@ -1,10 +1,18 @@
 {
   "item.learn1mod.bismuth": "Bismuth",
   "item.learn1mod.chisel": "Chisel",
+  "item.learn1mod.radish": "Radish",
+  "item.learn1mod.frostfire_ice": "Frostfire Ice",
+  "item.learn1mod.starlight_ashes": "Starlight Ashes",
 
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.magic_block": "Magic Block",
 
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
-  "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks"
+  "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",
+
+  "tooltip.learn1mod.magic_block.tooltip": "This Block is very §9MAGICAL§r",
+
+  "tooltip.learn1mod.chisel.shift_down": "Touch a Stone and Turn It into §6GOLD§r!",
+  "tooltip.learn1mod.chisel": "Press §eSHIFT§r for more Information"
 }
