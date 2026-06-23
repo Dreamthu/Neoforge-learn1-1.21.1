@@ -14,5 +14,7 @@
   "tooltip.learn1mod.magic_block.tooltip": "This Block is very §9MAGICAL§r",
 
   "tooltip.learn1mod.chisel.shift_down": "Touch a Stone and Turn It into §6GOLD§r!",
-  "tooltip.learn1mod.chisel": "Press §eSHIFT§r for more Information"
+  "tooltip.learn1mod.chisel": "Press §eSHIFT§r for more Information",
+
+  "tooltip.learn1mod.radish.tooltip": "Tastes really great!"
 }
