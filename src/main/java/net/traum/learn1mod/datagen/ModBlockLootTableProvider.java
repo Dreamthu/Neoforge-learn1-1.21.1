@@ -8,6 +8,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.item.ModItems;
 
 import java.util.Set;
 
@@ -19,7 +20,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        dropSelf(ModBlocks.MAGIC_BLOCK.get());
 
+        add(ModBlocks.BISMUTH_BLOCK.get(),
+                block -> createOreDrop(block, ModItems.BISMUTH.get()));
     }
 
     @Override
