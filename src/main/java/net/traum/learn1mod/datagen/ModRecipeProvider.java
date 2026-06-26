@@ -1,5 +1,63 @@
 package net.traum.learn1mod.datagen;
 
-public class ModRecipeProvider {
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.ItemLike;
+import net.traum.learn1mod.Learn1Mod;
+import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.item.ModItems;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class ModRecipeProvider extends RecipeProvider {
+
+    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries);
+    }
+
+    @Override
+    protected void buildRecipes(RecipeOutput recipeOutput) {
+        List<ItemLike> BISMUTH_SMELTABLES = List.of(ModItems.RADISH);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BISMUTH_BLOCK.get())
+                .pattern("BBB")
+                .pattern("BBB")
+                .pattern("BBB")
+                .define('B', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(), 9)
+                .requires(ModBlocks.BISMUTH_BLOCK)
+                .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(), 18)
+                .requires(ModBlocks.MAGIC_BLOCK)
+                .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK))
+                .save(recipeOutput, "learn1mod:bismuth_from_magic_block");
+
+        oreSmelting(recipeOutput, BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25F, 200, "bismuth");
+        oreBlasting(recipeOutput, BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25F, 100, "bismuth");
+    }
+
+    protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {
+        oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, ingredients, category, result, experience, cookingTime, group, "_from_smelting");
+    }
+
+    protected static void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {
+        oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, ingredients, category, result, experience, cookingTime, group, "_from_blasting");
+    }
+
+    protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> serializer, AbstractCookingRecipe.Factory<T> factory, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group, String suffix) {
+        for (ItemLike ingredient : ingredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(ingredient), category, result, experience, cookingTime, serializer, factory)
+                    .group(group)
+                    .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID,
+                            getItemName(result) + suffix + "_" + getItemName(ingredient)));
+        }
+    }
 }
