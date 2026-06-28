@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "learn1mod:bismuth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "learn1mod:bismuth_button"
+  }
+}

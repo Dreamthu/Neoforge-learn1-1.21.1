@@ -1,0 +1,10 @@
+{
+  "values": {
+    "learn1mod:frostfire_ice": {
+      "burn_time": 1200
+    },
+    "learn1mod:starlight_ashes": {
+      "burn_time": 2400
+    }
+  }
+}

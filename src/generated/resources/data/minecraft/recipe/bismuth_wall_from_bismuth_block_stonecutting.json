@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "learn1mod:bismuth_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "learn1mod:bismuth_wall"
+  }
+}

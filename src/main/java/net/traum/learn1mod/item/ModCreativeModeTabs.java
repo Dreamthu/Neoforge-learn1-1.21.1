@@ -9,7 +9,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.ModBlocks;
-import net.traum.learn1mod.block.custom.MagicBlock;
 
 import java.util.function.Supplier;
 
@@ -36,7 +35,17 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.learn1mod.bismuth_blocks"))
                     .displayItems((params, output) -> {
                         output.accept(ModBlocks.BISMUTH_BLOCK);
+                        output.accept(ModBlocks.BISMUTH_STAIRS);
+                        output.accept(ModBlocks.BISMUTH_SLAB);
+                        output.accept(ModBlocks.BISMUTH_PRESSURE_PLATE);
+                        output.accept(ModBlocks.BISMUTH_BUTTON);
+                        output.accept(ModBlocks.BISMUTH_FENCE);
+                        output.accept(ModBlocks.BISMUTH_FENCE_GATE);
+                        output.accept(ModBlocks.BISMUTH_WALL);
+                        output.accept(ModBlocks.BISMUTH_DOOR);
+                        output.accept(ModBlocks.BISMUTH_TRAPDOOR);
                         output.accept(ModBlocks.MAGIC_BLOCK);
+                        output.accept(ModBlocks.BISMUTH_LAMP);
                     }).build());
 
     public static void register(IEventBus eventBus) {

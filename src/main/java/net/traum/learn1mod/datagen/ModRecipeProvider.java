@@ -41,6 +41,32 @@ public class ModRecipeProvider extends RecipeProvider {
 
         oreSmelting(recipeOutput, BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25F, 200, "bismuth");
         oreBlasting(recipeOutput, BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25F, 100, "bismuth");
+
+        var blockIngredient = Ingredient.of(ModBlocks.BISMUTH_BLOCK.get());
+        var bismuthIngredient = Ingredient.of(ModItems.BISMUTH.get());
+
+        stairBuilder(ModBlocks.BISMUTH_STAIRS.get(), blockIngredient)
+                .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK)).save(recipeOutput);
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_SLAB.get(), ModBlocks.BISMUTH_BLOCK.get());
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_WALL.get(), ModBlocks.BISMUTH_BLOCK.get());
+
+        pressurePlate(recipeOutput, ModBlocks.BISMUTH_PRESSURE_PLATE.get(), ModItems.BISMUTH.get());
+        buttonBuilder(ModBlocks.BISMUTH_BUTTON.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        fenceBuilder(ModBlocks.BISMUTH_FENCE.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        fenceGateBuilder(ModBlocks.BISMUTH_FENCE_GATE.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        doorBuilder(ModBlocks.BISMUTH_DOOR.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        trapdoorBuilder(ModBlocks.BISMUTH_TRAPDOOR.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.BISMUTH_BLOCK.get());
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_SLAB.get(), ModBlocks.BISMUTH_BLOCK.get(), 2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_WALL.get(), ModBlocks.BISMUTH_BLOCK.get());
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {

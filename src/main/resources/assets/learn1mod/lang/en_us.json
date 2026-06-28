@@ -6,7 +6,17 @@
   "item.learn1mod.starlight_ashes": "Starlight Ashes",
 
   "block.learn1mod.bismuth_block": "Block of Bismuth",
+  "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
+  "block.learn1mod.bismuth_slab": "Bismuth Slab",
+  "block.learn1mod.bismuth_pressure_plate": "Bismuth Pressure Plate",
+  "block.learn1mod.bismuth_button": "Bismuth Button",
+  "block.learn1mod.bismuth_fence": "Bismuth Fence",
+  "block.learn1mod.bismuth_fence_gate": "Bismuth Fence Gate",
+  "block.learn1mod.bismuth_wall": "Bismuth Wall",
+  "block.learn1mod.bismuth_door": "Bismuth Door",
+  "block.learn1mod.bismuth_trapdoor": "Bismuth Trapdoor",
   "block.learn1mod.magic_block": "Magic Block",
+  "block.learn1mod.bismuth_lamp": "Bismuth Lamp",
 
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
   "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "learn1mod:bismuth_fence_gate"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "learn1mod:blocks/bismuth_fence_gate"
+}

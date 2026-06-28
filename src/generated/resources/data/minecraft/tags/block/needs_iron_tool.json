@@ -1,0 +1,14 @@
+{
+  "values": [
+    "learn1mod:bismuth_block",
+    "learn1mod:bismuth_stairs",
+    "learn1mod:bismuth_slab",
+    "learn1mod:bismuth_pressure_plate",
+    "learn1mod:bismuth_button",
+    "learn1mod:bismuth_fence",
+    "learn1mod:bismuth_fence_gate",
+    "learn1mod:bismuth_wall",
+    "learn1mod:bismuth_door",
+    "learn1mod:bismuth_trapdoor"
+  ]
+}

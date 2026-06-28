@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "learn1mod:magic_block"
+    }
+  ],
+  "result": {
+    "count": 18,
+    "id": "learn1mod:bismuth"
+  }
+}
