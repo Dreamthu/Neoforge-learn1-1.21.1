@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.component.ModDatacomponents;
 import org.checkerframework.checker.units.qual.C;
 
 import java.util.List;
@@ -45,6 +46,8 @@ public class ChiselItem extends Item {
                         item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
                 level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+
+                context.getItemInHand().set(ModDatacomponents.COORDINATES, context.getClickedPos());
             }
         }
         return InteractionResult.SUCCESS;
@@ -58,6 +61,11 @@ public class ChiselItem extends Item {
         else {
             tooltipComponents.add(Component.translatable("tooltip.learn1mod.chisel"));
         }
+
+        if (stack.get(ModDatacomponents.COORDINATES) != null) {
+            tooltipComponents.add(Component.literal("Last Block changed at " + stack.get(ModDatacomponents.COORDINATES)));
+        }
+
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

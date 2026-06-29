@@ -2,6 +2,7 @@ package net.traum.learn1mod;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
 import org.slf4j.Logger;
@@ -45,6 +46,8 @@ public class Learn1Mod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModDatacomponents.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

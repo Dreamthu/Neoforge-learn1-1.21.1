@@ -18,5 +18,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RADISH.get());
         basicItem(ModItems.STARLIGHT_ASHES.get());
         basicItem(ModItems.FROSTFIRE_ICE.get());
+
+        handheldItem(ModItems.BISMUTH_SWORD.get());
+        handheldItem(ModItems.BISMUTH_PICKAXE.get());
+        handheldItem(ModItems.BISMUTH_AXE.get());
+        handheldItem(ModItems.BISMUTH_SHOVEL.get());
+        handheldItem(ModItems.BISMUTH_HOE.get());
     }
 }
