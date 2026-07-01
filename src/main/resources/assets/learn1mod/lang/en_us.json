@@ -10,6 +10,13 @@
   "item.learn1mod.bismuth_shovel": "Bismuth Shovel",
   "item.learn1mod.bismuth_hoe": "Bismuth Hoe",
 
+  "item.learn1mod.bismuth_hammer": "Bismuth Hammer",
+
+  "item.learn1mod.bismuth_helmet": "Bismuth Helmet",
+  "item.learn1mod.bismuth_chestplate": "Bismuth Chestplate",
+  "item.learn1mod.bismuth_leggings": "Bismuth Leggings",
+  "item.learn1mod.bismuth_boots": "Bismuth Boots",
+
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
   "block.learn1mod.bismuth_slab": "Bismuth Slab",

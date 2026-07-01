@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.ModBlocks;
@@ -62,6 +63,72 @@ public class ModRecipeProvider extends RecipeProvider {
         doorBuilder(ModBlocks.BISMUTH_DOOR.get(), bismuthIngredient)
                 .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
         trapdoorBuilder(ModBlocks.BISMUTH_TRAPDOOR.get(), bismuthIngredient)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_SWORD.get())
+                .pattern("B")
+                .pattern("B")
+                .pattern("S")
+                .define('B', ModItems.BISMUTH.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BISMUTH_PICKAXE.get())
+                .pattern("BBB")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('B', ModItems.BISMUTH.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BISMUTH_AXE.get())
+                .pattern("BB")
+                .pattern("BS")
+                .pattern(" S")
+                .define('B', ModItems.BISMUTH.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BISMUTH_SHOVEL.get())
+                .pattern("B")
+                .pattern("S")
+                .pattern("S")
+                .define('B', ModItems.BISMUTH.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BISMUTH_HOE.get())
+                .pattern("BB")
+                .pattern(" S")
+                .pattern(" S")
+                .define('B', ModItems.BISMUTH.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_HELMET.get())
+                .pattern("BBB")
+                .pattern("B B")
+                .define('B', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_CHESTPLATE.get())
+                .pattern("B B")
+                .pattern("BBB")
+                .pattern("BBB")
+                .define('B', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_LEGGINGS.get())
+                .pattern("BBB")
+                .pattern("B B")
+                .pattern("B B")
+                .define('B', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_BOOTS.get())
+                .pattern("B B")
+                .pattern("B B")
+                .define('B', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BISMUTH_HAMMER.get())
+                .pattern(" B ")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModBlocks.BISMUTH_BLOCK.get())
+                .define('S', Items.STICK)
                 .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.BISMUTH_BLOCK.get());

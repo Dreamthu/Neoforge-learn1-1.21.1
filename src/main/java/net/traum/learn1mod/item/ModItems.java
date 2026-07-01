@@ -1,6 +1,7 @@
 package net.traum.learn1mod.item;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -8,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.item.custom.ChiselItem;
 import net.traum.learn1mod.item.custom.FuelItem;
-import net.traum.learn1mod.item.custom.ModToolTiers;
+import net.traum.learn1mod.item.custom.HammerItem;
 
 import java.util.List;
 
@@ -51,6 +52,23 @@ public class ModItems {
     public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.register("bismuth_hoe",
             () -> new HoeItem(ModToolTiers.BISMUTH, new Item.Properties()
                     .attributes(HoeItem.createAttributes(ModToolTiers.BISMUTH, -2.0F, -1.0F))));
+
+    public static final DeferredItem<Item> BISMUTH_HAMMER = ITEMS.register("bismuth_hammer",
+            () -> new HammerItem(ModToolTiers.BISMUTH, BlockTags.MINEABLE_WITH_PICKAXE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.BISMUTH, 8F, -3.3F))));
+
+    public static final DeferredItem<ArmorItem> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(19))));
+    public static final DeferredItem<ArmorItem> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(19))));
+    public static final DeferredItem<ArmorItem> BISMUTH_LEGGINGS = ITEMS.register("bismuth_leggings",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(19))));
+    public static final DeferredItem<ArmorItem> BISMUTH_BOOTS = ITEMS.register("bismuth_boots",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(19))));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
