@@ -38,7 +38,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(ModItems.BISMUTH.get());
-        basicItem(ModItems.CHISEL.get());
+        //basicItem(ModItems.CHISEL.get());
         basicItem(ModItems.RADISH.get());
         basicItem(ModItems.STARLIGHT_ASHES.get());
         basicItem(ModItems.FROSTFIRE_ICE.get());
@@ -56,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.BISMUTH_BOOTS);
 
         basicItem(ModItems.BISMUTH_HORSE_ARMOR.get());
+        basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
     }
 
     // Shoutout to El_Redstoniano for making this

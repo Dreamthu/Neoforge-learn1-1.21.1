@@ -16,8 +16,8 @@ import java.util.*;
 public class ModArmorItem extends ArmorItem {
     private static final Map<Holder<ArmorMaterial>, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             Map.of(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                    List.of(new MobEffectInstance(MobEffects.JUMP, 200, 1, false, false),
-                            new MobEffectInstance(MobEffects.GLOWING, 200, 1, false, false)));
+                    List.of(new MobEffectInstance(MobEffects.JUMP, 20, 1, false, false),
+                            new MobEffectInstance(MobEffects.GLOWING, 20, 1, false, false)));
 
     public ModArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);

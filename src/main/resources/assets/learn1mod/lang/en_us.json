@@ -18,6 +18,7 @@
   "item.learn1mod.bismuth_boots": "Bismuth Boots",
 
   "item.learn1mod.bismuth_horse_armor": "Bismuth Horse Armor",
+  "item.learn1mod.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
 
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
@@ -40,5 +41,8 @@
   "tooltip.learn1mod.chisel.shift_down": "Touch a Stone and Turn It into §6GOLD§r!",
   "tooltip.learn1mod.chisel": "Press §eSHIFT§r for more Information",
 
-  "tooltip.learn1mod.radish.tooltip": "Tastes really great!"
+  "tooltip.learn1mod.radish.tooltip": "Tastes really great!",
+
+  "trim_pattern.learn1mod.kaupen": "Kaupen Armor Trim",
+  "trim_material.learn1mod.bismuth": "Bismuth Material"
 }

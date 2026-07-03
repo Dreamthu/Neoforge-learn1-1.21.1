@@ -65,6 +65,8 @@ public class ModRecipeProvider extends RecipeProvider {
         trapdoorBuilder(ModBlocks.BISMUTH_TRAPDOOR.get(), bismuthIngredient)
                 .unlockedBy("has_bismuth", has(ModItems.BISMUTH)).save(recipeOutput);
 
+        trimSmithing(recipeOutput, ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID, "kaupen"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BISMUTH_SWORD.get())
                 .pattern("B")
                 .pattern("B")

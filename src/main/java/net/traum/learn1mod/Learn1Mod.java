@@ -1,10 +1,14 @@
 package net.traum.learn1mod;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
+import net.traum.learn1mod.util.ModItemProperties;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -74,5 +78,13 @@ public class Learn1Mod {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            ModItemProperties.addCustomItemProperties();
+        }
     }
 }

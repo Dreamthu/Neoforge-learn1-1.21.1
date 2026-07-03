@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.MossBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
@@ -37,6 +38,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BISMUTH_LEGGINGS);
                         output.accept(ModItems.BISMUTH_BOOTS);
                         output.accept(ModItems.BISMUTH_HORSE_ARMOR);
+                        output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
                     }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB = CREATIVE_MODE_TAB.register(
