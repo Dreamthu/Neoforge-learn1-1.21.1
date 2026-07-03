@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "learn1mod:bismuth_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " B ",
+    " SB",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "learn1mod:bismuth_hammer"
+  }
+}
