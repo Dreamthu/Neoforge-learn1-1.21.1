@@ -2,16 +2,24 @@ package net.traum.learn1mod.event;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.item.custom.HammerItem;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @EventBusSubscriber(modid = Learn1Mod.MOD_ID)
@@ -38,6 +46,23 @@ public class ModEvents {
                 serverPlayer.gameMode.destroyBlock(pos);
             }
             HARVESTED_BLOCKS.clear();
+        }
+    }
+
+    @SubscribeEvent
+    public static void livingDamage(LivingDamageEvent.Pre event) {
+        if (event.getEntity() instanceof Sheep sheep && event.getSource().getDirectEntity() instanceof Player player) {
+            if (player.getMainHandItem().getItem() == Items.END_ROD) {
+                player.sendSystemMessage(Component.literal(player.getName().getString() +
+                        "just hit a sheep with an END ROD? YOU SICK FRICK!"));
+                sheep.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 0));
+                player.getMainHandItem().shrink(1);
+                List.of(
+                        new MobEffectInstance(MobEffects.WEAKNESS, 600, 1),
+                        new MobEffectInstance(MobEffects.BLINDNESS, 200, 0),
+                        new MobEffectInstance(MobEffects.CONFUSION, 300, 0)
+                ).forEach(player::addEffect);
+            }
         }
     }
 }

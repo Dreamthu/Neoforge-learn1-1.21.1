@@ -40,12 +40,13 @@ public class ModArmorItem extends ArmorItem {
 
     private void addEffectToPlayer(Player player, List<MobEffectInstance> effects) {
         for (MobEffectInstance effect : effects) {
-            if (!player.hasEffect(effect.getEffect())) {
-                effects.forEach(e -> player.addEffect(new MobEffectInstance(e)));
-                return;
+            MobEffectInstance current = player.getEffect(effect.getEffect());
+            if (current == null || current.getDuration() <= 10) {
+                player.addEffect(new MobEffectInstance(effect));
             }
         }
     }
+
 
     private boolean hasCorrectArmorOn(Holder<ArmorMaterial> material, Player player) {
         for (ItemStack stack : player.getArmorSlots()) {
