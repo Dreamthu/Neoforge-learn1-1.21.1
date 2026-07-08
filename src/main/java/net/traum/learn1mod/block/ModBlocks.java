@@ -16,6 +16,7 @@ import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.custom.BismuthLampBlock;
 import net.traum.learn1mod.block.custom.MagicBlock;
 import net.traum.learn1mod.item.ModItems;
+import net.traum.learn1mod.sound.ModSounds;
 
 import java.util.function.Supplier;
 
@@ -30,7 +31,7 @@ public class ModBlocks {
                     .strength(4.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2F).requiresCorrectToolForDrops()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2F).noLootTable().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
             () -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),

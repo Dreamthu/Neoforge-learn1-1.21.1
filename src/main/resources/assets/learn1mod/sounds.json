@@ -1,0 +1,50 @@
+{
+  "chisel_use": {
+    "subtitle": "sounds.learn1mod.chisel_use",
+    "sounds": [
+      {
+        "name": "learn1mod:chisel_use",
+        "volume": 1.5
+      }
+    ]
+  },
+  "magic_block_break": {
+    "subtitle": "sounds.learn1mod.magic_block_break",
+    "sounds": [
+      "learn1mod:magic_block_break"
+    ]
+  },
+  "magic_block_step": {
+    "subtitle": "sounds.learn1mod.magic_block_step",
+    "sounds": [
+      "learn1mod:magic_block_step"
+    ]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.learn1mod.magic_block_place",
+    "sounds": [
+      "learn1mod:magic_block_place"
+    ]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.learn1mod.magic_block_hit",
+    "sounds": [
+      "learn1mod:magic_block_hit"
+    ]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.learn1mod.magic_block_fall",
+    "sounds": [
+      "learn1mod:magic_block_fall"
+    ]
+  },
+  "bar_brawl": {
+    "subtitle": "sounds.learn1mod.bar_brawl",
+    "sounds": [
+      {
+        "name": "learn1mod:bar_brawl",
+        "stream": true
+      }
+    ]
+  }
+}

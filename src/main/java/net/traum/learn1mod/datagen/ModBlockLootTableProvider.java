@@ -27,7 +27,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BISMUTH_FENCE_GATE.get());
         dropSelf(ModBlocks.BISMUTH_WALL.get());
         dropSelf(ModBlocks.BISMUTH_TRAPDOOR.get());
-        dropSelf(ModBlocks.MAGIC_BLOCK.get());
         dropSelf(ModBlocks.BISMUTH_LAMP.get());
 
         this.add(ModBlocks.BISMUTH_SLAB.get(), block -> createSlabItemTable(ModBlocks.BISMUTH_SLAB.get()));

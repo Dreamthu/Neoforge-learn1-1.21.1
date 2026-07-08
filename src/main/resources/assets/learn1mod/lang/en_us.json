@@ -22,6 +22,9 @@
 
   "item.learn1mod.kaupen_bow": "Kaupen Bow",
 
+  "item.learn1mod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.learn1mod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl",
+
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
   "block.learn1mod.bismuth_slab": "Bismuth Slab",
@@ -38,6 +41,8 @@
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
   "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",
 
+  "effect.learn1mod.slimey": "Slimey",
+
   "tooltip.learn1mod.magic_block.tooltip": "This Block is very §9MAGICAL§r",
 
   "tooltip.learn1mod.chisel.shift_down": "Touch a Stone and Turn It into §6GOLD§r!",
@@ -46,5 +51,7 @@
   "tooltip.learn1mod.radish.tooltip": "Tastes really great!",
 
   "trim_pattern.learn1mod.kaupen": "Kaupen Armor Trim",
-  "trim_material.learn1mod.bismuth": "Bismuth Material"
+  "trim_material.learn1mod.bismuth": "Bismuth Material",
+
+  "jukebox_song.learn1mod.bar_brawl": "Bryan Tech - Bar Brawl"
 }
