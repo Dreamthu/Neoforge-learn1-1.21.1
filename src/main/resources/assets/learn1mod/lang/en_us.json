@@ -43,15 +43,30 @@
 
   "effect.learn1mod.slimey": "Slimey",
 
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
+  "enchantment.learn1mod.lightning_striker": "Lightning Striker",
+
   "tooltip.learn1mod.magic_block.tooltip": "This Block is very §9MAGICAL§r",
 
   "tooltip.learn1mod.chisel.shift_down": "Touch a Stone and Turn It into §6GOLD§r!",
   "tooltip.learn1mod.chisel": "Press §eSHIFT§r for more Information",
+
+  "tooltip.learn1mod.slimey_potion": "Allows the user to climb up walls like a spider",
 
   "tooltip.learn1mod.radish.tooltip": "Tastes really great!",
 
   "trim_pattern.learn1mod.kaupen": "Kaupen Armor Trim",
   "trim_material.learn1mod.bismuth": "Bismuth Material",
 
-  "jukebox_song.learn1mod.bar_brawl": "Bryan Tech - Bar Brawl"
+  "jukebox_song.learn1mod.bar_brawl": "Bryan Tech - Bar Brawl",
+
+  "painting.learn1mod.saw_them.title": "Saw Them",
+  "painting.learn1mod.saw_them.author": "NanoAttack",
+  "painting.learn1mod.shrimp.title": "Shrimp",
+  "painting.learn1mod.shrimp.author": "NanoAttack",
+  "painting.learn1mod.world.title": "World",
+  "painting.learn1mod.world.author": "NanoAttack"
 }

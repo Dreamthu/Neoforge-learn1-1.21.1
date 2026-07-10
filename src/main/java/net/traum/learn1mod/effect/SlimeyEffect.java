@@ -1,8 +1,11 @@
 package net.traum.learn1mod.effect;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 // Climbing Effect by SameDifferent: https://github.com/samedifferent/TrickOrTreat/blob/master/LICENSE
@@ -13,15 +16,33 @@ public class SlimeyEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        if(livingEntity.horizontalCollision) {
-            Vec3 initialVec = livingEntity.getDeltaMovement();
-            Vec3 climbVec = new Vec3(initialVec.x, 0.2D, initialVec.z);
-            livingEntity.setDeltaMovement(climbVec.scale(0.96D));
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+        if (entity.horizontalCollision) {
+            Vec3 vel = entity.getDeltaMovement();
+            entity.setDeltaMovement(vel.x * 0.8F, 0.2D, vel.z * 0.8F);
             return true;
         }
 
-        return super.applyEffectTick(livingEntity, amplifier);
+        if (!(entity instanceof Player) && entity.getDeltaMovement().horizontalDistance() > 0.01 && isMovingTowardWall(entity)) {
+            Vec3 vel = entity.getDeltaMovement();
+            entity.setDeltaMovement(vel.x * 0.8F, 0.2D, vel.z * 0.8F);
+            return true;
+        }
+
+        return super.applyEffectTick(entity, amplifier);
+    }
+
+    private boolean isMovingTowardWall(LivingEntity entity) {
+        Vec3 movement = entity.getDeltaMovement();
+        BlockPos pos = entity.blockPosition();
+        Level level = entity.level();
+
+        if (movement.x > 0.01 && level.getBlockState(pos.east()).isSolid()) return true;
+        if (movement.x < -0.01 && level.getBlockState(pos.west()).isSolid()) return true;
+        if (movement.z > 0.01 && level.getBlockState(pos.south()).isSolid()) return true;
+        if (movement.z < -0.01 && level.getBlockState(pos.north()).isSolid()) return true;
+
+        return false;
     }
 
     @Override

@@ -6,7 +6,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.traum.learn1mod.Learn1Mod;
+import net.traum.learn1mod.enchantment.ModEnchantments;
 import net.traum.learn1mod.sound.ModJukeboxSongs;
+import net.traum.learn1mod.painting.ModPaintingVariants;
 import net.traum.learn1mod.trim.ModTrimMaterials;
 import net.traum.learn1mod.trim.ModTrimPatterns;
 
@@ -17,7 +19,9 @@ public class ModDataPackProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
             .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
-            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap);
+            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap)
+            .add(Registries.PAINTING_VARIANT, ModPaintingVariants::bootstrap)
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
 
     public ModDataPackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Learn1Mod.MOD_ID));

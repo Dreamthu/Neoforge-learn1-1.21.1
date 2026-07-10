@@ -7,8 +7,10 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.effect.ModEffects;
+import net.traum.learn1mod.enchantment.ModEnchantmentEffects;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
+import net.traum.learn1mod.potion.ModPotions;
 import net.traum.learn1mod.sound.ModSounds;
 import net.traum.learn1mod.util.ModItemProperties;
 import org.slf4j.Logger;
@@ -57,6 +59,9 @@ public class Learn1Mod {
         ModSounds.register(modEventBus);
 
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
+
+        ModEnchantmentEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
