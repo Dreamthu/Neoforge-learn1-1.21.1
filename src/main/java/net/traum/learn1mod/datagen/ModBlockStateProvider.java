@@ -2,14 +2,18 @@ package net.traum.learn1mod.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.block.custom.BismuthLampBlock;
+import net.traum.learn1mod.block.custom.RadishCropBlock;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -52,6 +56,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.BISMUTH_WALL, "bismuth_wall_inventory");
         itemModels().basicItem(ModBlocks.BISMUTH_DOOR.getId());
         blockItem(ModBlocks.BISMUTH_TRAPDOOR, "bismuth_trapdoor_bottom");
+
+        makeCrop((CropBlock) ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, "radish_crop_stage", "radish_crop_stage");
+    }
+
+    public void makeCrop(CropBlock block, IntegerProperty ageProperty, String modelName, String textureName) {
+        getVariantBuilder(block).forAllStates(state -> {
+            int age = state.getValue(ageProperty);
+            return new ConfiguredModel[]{
+                    new ConfiguredModel(models().crop(modelName + age,
+                            ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID, "block/" + textureName + age))
+                            .renderType("cutout"))
+            };
+        });
     }
 
     private void customLamp(DeferredBlock<?> block, BooleanProperty property, ResourceLocation offTexture, ResourceLocation onTexture) {

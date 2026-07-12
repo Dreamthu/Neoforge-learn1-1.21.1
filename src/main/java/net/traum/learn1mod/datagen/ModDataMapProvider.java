@@ -22,6 +22,8 @@ public class ModDataMapProvider extends DataMapProvider {
                 .add(ModItems.STARLIGHT_ASHES.getId(), new FurnaceFuel(2400), false);
 
         this.builder(NeoForgeDataMaps.COMPOSTABLES)
-                .add(ModItems.RADISH.getId(), new Compostable(0.65F), false);
+                .add(ModItems.RADISH.getId(), new Compostable(0.65F), false)
+                .add(ModItems.RADISH_SEEDS.getId(), new Compostable(0.5F), false);
+
     }
 }

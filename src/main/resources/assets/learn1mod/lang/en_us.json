@@ -25,6 +25,8 @@
   "item.learn1mod.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.learn1mod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl",
 
+  "item.learn1mod.radish_seeds": "Radish Seeds",
+
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
   "block.learn1mod.bismuth_slab": "Bismuth Slab",
@@ -37,6 +39,8 @@
   "block.learn1mod.bismuth_trapdoor": "Bismuth Trapdoor",
   "block.learn1mod.magic_block": "Magic Block",
   "block.learn1mod.bismuth_lamp": "Bismuth Lamp",
+
+  "block.learn1mod.radish_crop": "Radish Crop",
 
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
   "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",

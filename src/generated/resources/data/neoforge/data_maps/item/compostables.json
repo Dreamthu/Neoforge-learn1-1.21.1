@@ -2,6 +2,9 @@
   "values": {
     "learn1mod:radish": {
       "chance": 0.65
+    },
+    "learn1mod:radish_seeds": {
+      "chance": 0.5
     }
   }
 }
