@@ -12,10 +12,14 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.enchantment.custom.LightningStrikerEnchantmentEffect;
+import net.traum.learn1mod.util.ModTags;
 
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> LIGHTNING_STRIKER = ResourceKey.create(Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID, "lightning_striker"));
+
+    public static final ResourceKey<Enchantment> FROST_HOOVES = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID, "frost_hooves"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchantments = context.lookup(Registries.ENCHANTMENT);
@@ -33,6 +37,16 @@ public class ModEnchantments {
                 .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
                 .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
                         EnchantmentTarget.VICTIM, new LightningStrikerEnchantmentEffect()));
+
+        register(context, FROST_HOOVES, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(ModTags.Items.HORSE_ARMOR_ENCHANTABLE),
+                        items.getOrThrow(ModTags.Items.HORSE_ARMOR_ENCHANTABLE),
+                        2,
+                        2,
+                        Enchantment.dynamicCost(10, 10),
+                        Enchantment.dynamicCost(25, 10),
+                        2,
+                        EquipmentSlotGroup.BODY)));
     }
 
     private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key,

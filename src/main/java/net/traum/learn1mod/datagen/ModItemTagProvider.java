@@ -26,6 +26,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BISMUTH.get())
                 .add(Items.COAL);
 
+        tag(ModTags.Items.HORSE_ARMOR_ENCHANTABLE)
+                .add(ModItems.BISMUTH_HORSE_ARMOR.get())
+                .add(Items.LEATHER_HORSE_ARMOR)
+                .add(Items.IRON_HORSE_ARMOR)
+                .add(Items.GOLDEN_HORSE_ARMOR)
+                .add(Items.DIAMOND_HORSE_ARMOR);
+
         tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get());
         tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get());
         tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get());

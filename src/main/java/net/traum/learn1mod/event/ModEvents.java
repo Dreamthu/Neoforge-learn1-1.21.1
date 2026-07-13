@@ -5,24 +5,32 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.traum.learn1mod.Learn1Mod;
+import net.traum.learn1mod.enchantment.ModEnchantments;
 import net.traum.learn1mod.item.custom.HammerItem;
 import net.traum.learn1mod.potion.ModPotions;
 
@@ -79,6 +87,44 @@ public class ModEvents {
         PotionBrewing.Builder builder = event.getBuilder();
 
         builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
+    }
+
+    @SubscribeEvent
+    public static void onEntityTick(EntityTickEvent.Post event) {
+        if (event.getEntity() instanceof LivingEntity entity
+                && !(entity instanceof Player)
+                && entity.onGround()
+                && entity.level() instanceof ServerLevel serverLevel) {
+            ItemStack bodyArmor = entity.getItemBySlot(EquipmentSlot.BODY);
+            int level = bodyArmor.getEnchantments().getLevel(
+                    serverLevel.registryAccess().holderOrThrow(ModEnchantments.FROST_HOOVES));
+            if (level > 0) {
+                freezeWaterAround(entity, serverLevel, level);
+            }
+        }
+    }
+
+    private static void freezeWaterAround(LivingEntity entity, ServerLevel level, int enchantmentLevel) {
+        BlockState frostedIce = Blocks.FROSTED_ICE.defaultBlockState();
+        BlockPos center = entity.blockPosition();
+        int radius = Math.min(16, 2 + enchantmentLevel);
+
+        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-radius, -1, -radius),
+                center.offset(radius, -1, radius))) {
+            double xDistance = pos.getX() + 0.5D - entity.getX();
+            double zDistance = pos.getZ() + 0.5D - entity.getZ();
+            if (xDistance * xDistance + zDistance * zDistance > radius * radius) {
+                continue;
+            }
+
+            if (level.getBlockState(pos.above()).isAir()
+                    && level.getBlockState(pos).is(Blocks.WATER)
+                    && frostedIce.canSurvive(level, pos)
+                    && level.isUnobstructed(frostedIce, pos, CollisionContext.empty())) {
+                level.setBlockAndUpdate(pos, frostedIce);
+                level.scheduleTick(pos, Blocks.FROSTED_ICE, Mth.nextInt(entity.getRandom(), 60, 120));
+            }
+        }
     }
 
     @SubscribeEvent

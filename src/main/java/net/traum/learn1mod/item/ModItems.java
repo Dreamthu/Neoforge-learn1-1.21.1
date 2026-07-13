@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.item.custom.BismuthHorseArmorItem;
 import net.traum.learn1mod.item.custom.ChiselItem;
 import net.traum.learn1mod.item.custom.FuelItem;
 import net.traum.learn1mod.item.custom.HammerItem;
@@ -75,7 +76,7 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(19))));
 
     public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.register("bismuth_horse_armor",
-            () -> new AnimalArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, AnimalArmorItem.BodyType.EQUESTRIAN,
+            () -> new BismuthHorseArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, AnimalArmorItem.BodyType.EQUESTRIAN,
                     false, new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE = ITEMS.register("kaupen_armor_trim_smithing_template",
