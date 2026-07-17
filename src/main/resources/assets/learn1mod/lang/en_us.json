@@ -26,6 +26,7 @@
   "item.learn1mod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl",
 
   "item.learn1mod.radish_seeds": "Radish Seeds",
+  "item.learn1mod.goji_berries": "Goji Berries",
 
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_stairs": "Bismuth Stairs",
@@ -41,6 +42,7 @@
   "block.learn1mod.bismuth_lamp": "Bismuth Lamp",
 
   "block.learn1mod.radish_crop": "Radish Crop",
+  "block.learn1mod.goji_berry_bush": "Goji Berry Bush",
 
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
   "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",
