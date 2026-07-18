@@ -52,6 +52,10 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.learn1mod.bismuth_blocks"))
                     .displayItems((params, output) -> {
                         output.accept(ModBlocks.BISMUTH_BLOCK);
+                        output.accept(ModBlocks.BISMUTH_ORE);
+                        output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.BISMUTH_END_ORE);
+                        output.accept(ModBlocks.BISMUTH_NETHER_ORE);
                         output.accept(ModBlocks.BISMUTH_STAIRS);
                         output.accept(ModBlocks.BISMUTH_SLAB);
                         output.accept(ModBlocks.BISMUTH_PRESSURE_PLATE);

@@ -21,6 +21,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.BISMUTH_BLOCK.get())
+                .add(ModBlocks.BISMUTH_ORE.get())
+                .add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get())
+                .add(ModBlocks.BISMUTH_END_ORE.get())
+                .add(ModBlocks.BISMUTH_NETHER_ORE.get())
                 .add(ModBlocks.BISMUTH_STAIRS.get())
                 .add(ModBlocks.BISMUTH_SLAB.get())
                 .add(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
@@ -35,6 +39,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BISMUTH_BLOCK.get())
+                .add(ModBlocks.BISMUTH_ORE.get())
+                .add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get())
+                .add(ModBlocks.BISMUTH_END_ORE.get())
+                .add(ModBlocks.BISMUTH_NETHER_ORE.get())
                 .add(ModBlocks.BISMUTH_STAIRS.get())
                 .add(ModBlocks.BISMUTH_SLAB.get())
                 .add(ModBlocks.BISMUTH_PRESSURE_PLATE.get())

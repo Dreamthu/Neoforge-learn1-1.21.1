@@ -31,6 +31,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         var texture = blockTexture(ModBlocks.BISMUTH_BLOCK.get());
 
         blockWithItem(ModBlocks.BISMUTH_BLOCK);
+        blockWithItem(ModBlocks.BISMUTH_ORE);
+        blockWithItem(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+        blockWithItem(ModBlocks.BISMUTH_END_ORE);
+        blockWithItem(ModBlocks.BISMUTH_NETHER_ORE);
         blockWithItem(ModBlocks.MAGIC_BLOCK);
 
         stairsBlock(ModBlocks.BISMUTH_STAIRS.get(), texture);

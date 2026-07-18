@@ -46,8 +46,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.BISMUTH_SLAB.get(), block -> createSlabItemTable(ModBlocks.BISMUTH_SLAB.get()));
         this.add(ModBlocks.BISMUTH_DOOR.get(), block -> createDoorTable(ModBlocks.BISMUTH_DOOR.get()));
 
-        add(ModBlocks.BISMUTH_BLOCK.get(),
-                block -> createOreDrop(block, ModItems.BISMUTH.get()));
+        this.add(ModBlocks.BISMUTH_BLOCK.get(), block -> createOreDrop(block, ModItems.BISMUTH.get()));
+        this.add(ModBlocks.BISMUTH_ORE.get(), this::bismuthOreDrops);
+        this.add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(), this::bismuthOreDrops);
+        this.add(ModBlocks.BISMUTH_END_ORE.get(), this::bismuthOreDrops);
+        this.add(ModBlocks.BISMUTH_NETHER_ORE.get(), this::bismuthOreDrops);
 
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RADISH_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RadishCropBlock.AGE, 3));
@@ -71,6 +74,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                 .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
                 )));
+    }
+
+    private LootTable.Builder bismuthOreDrops(Block block) {
+        return this.applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool()
+                .add(LootItem.lootTableItem(ModItems.BISMUTH.get())
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))
+        ));
     }
 
     @Override

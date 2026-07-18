@@ -1,6 +1,10 @@
 {
   "values": [
     "learn1mod:bismuth_block",
+    "learn1mod:bismuth_ore",
+    "learn1mod:bismuth_deepslate_ore",
+    "learn1mod:bismuth_end_ore",
+    "learn1mod:bismuth_nether_ore",
     "learn1mod:bismuth_stairs",
     "learn1mod:bismuth_slab",
     "learn1mod:bismuth_pressure_plate",
