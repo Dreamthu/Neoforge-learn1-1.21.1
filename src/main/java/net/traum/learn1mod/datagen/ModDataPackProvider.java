@@ -5,12 +5,16 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.enchantment.ModEnchantments;
 import net.traum.learn1mod.sound.ModJukeboxSongs;
 import net.traum.learn1mod.painting.ModPaintingVariants;
 import net.traum.learn1mod.trim.ModTrimMaterials;
 import net.traum.learn1mod.trim.ModTrimPatterns;
+import net.traum.learn1mod.worldgen.ModBiomeModifiers;
+import net.traum.learn1mod.worldgen.ModConfiguredFeatures;
+import net.traum.learn1mod.worldgen.ModPlacedFeatures;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -21,7 +25,11 @@ public class ModDataPackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
             .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap)
             .add(Registries.PAINTING_VARIANT, ModPaintingVariants::bootstrap)
-            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
+
+            .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
+            .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
 
     public ModDataPackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Learn1Mod.MOD_ID));
