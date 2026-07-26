@@ -7,11 +7,15 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimMaterials;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.traum.learn1mod.Learn1Mod;
+import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.item.ModItems;
 
 import java.util.LinkedHashMap;
@@ -61,6 +65,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.RADISH_SEEDS.get());
         basicItem(ModItems.GOJI_BERRIES.get());
+
+        saplingItem(ModBlocks.BLOODWOOD_SAPLING);
+    }
+
+    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Learn1Mod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this
