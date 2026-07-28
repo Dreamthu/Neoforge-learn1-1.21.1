@@ -5,7 +5,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.MossBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.traum.learn1mod.Learn1Mod;
@@ -43,6 +42,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                         output.accept(ModItems.RADISH_SEEDS);
                         output.accept(ModItems.GOJI_BERRIES);
+                        output.accept(ModItems.GECKO_SPAWN_EGG);
                     }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB = CREATIVE_MODE_TAB.register(

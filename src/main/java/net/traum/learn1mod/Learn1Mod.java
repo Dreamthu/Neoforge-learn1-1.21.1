@@ -1,5 +1,6 @@
 package net.traum.learn1mod;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -8,6 +9,8 @@ import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.effect.ModEffects;
 import net.traum.learn1mod.enchantment.ModEnchantmentEffects;
+import net.traum.learn1mod.entity.ModEntities;
+import net.traum.learn1mod.entity.client.GeckoRenderer;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
 import net.traum.learn1mod.potion.ModPotions;
@@ -62,6 +65,7 @@ public class Learn1Mod {
         ModPotions.register(modEventBus);
 
         ModEnchantmentEffects.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -95,6 +99,8 @@ public class Learn1Mod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+
+            EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         }
     }
 }
