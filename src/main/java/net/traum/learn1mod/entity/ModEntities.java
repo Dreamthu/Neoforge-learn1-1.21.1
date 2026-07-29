@@ -16,7 +16,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<GeckoEntity>> GECKO =
             ENTITY_TYPES.register("gecko", () -> EntityType.Builder.of(GeckoEntity::new, MobCategory.CREATURE)
-                    .sized(0.75f, 0.35f).build("gecko"));
+                    .sized(0.5f, 0.35f).build("gecko"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
