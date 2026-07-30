@@ -35,8 +35,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.DIAMOND_HORSE_ARMOR);
 
         tag(ModTags.Items.LIGHTNING_STRIKER_ENCHANTABLE)
-                .addTag(ItemTags. SHARP_WEAPON_ENCHANTABLE)
-                .add(ModItems.BISMUTH_HAMMER.get());
+                .addTag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+                .add(ModItems.BISMUTH_HAMMER.get())
+                .add(ModItems.TOMAHAWK.get())
+                .add(Items.BOW)
+                .add(Items.CROSSBOW);
 
         tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get());
         tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get());

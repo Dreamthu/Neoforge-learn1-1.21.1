@@ -11,6 +11,7 @@ import net.traum.learn1mod.effect.ModEffects;
 import net.traum.learn1mod.enchantment.ModEnchantmentEffects;
 import net.traum.learn1mod.entity.ModEntities;
 import net.traum.learn1mod.entity.client.GeckoRenderer;
+import net.traum.learn1mod.entity.client.TomahawkProjectileRenderer;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
 import net.traum.learn1mod.potion.ModPotions;
@@ -101,6 +102,7 @@ public class Learn1Mod {
             ModItemProperties.addCustomItemProperties();
 
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+            EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         }
     }
 }
