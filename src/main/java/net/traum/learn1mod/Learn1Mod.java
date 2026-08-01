@@ -10,6 +10,7 @@ import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.effect.ModEffects;
 import net.traum.learn1mod.enchantment.ModEnchantmentEffects;
 import net.traum.learn1mod.entity.ModEntities;
+import net.traum.learn1mod.entity.client.ChairRenderer;
 import net.traum.learn1mod.entity.client.GeckoRenderer;
 import net.traum.learn1mod.entity.client.TomahawkProjectileRenderer;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
@@ -103,6 +104,7 @@ public class Learn1Mod {
 
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
         }
     }
 }

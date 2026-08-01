@@ -5,13 +5,9 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
-import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.traum.learn1mod.Learn1Mod;
-import net.traum.learn1mod.enchantment.custom.LightningStrikerEnchantmentEffect;
 import net.traum.learn1mod.util.ModTags;
 
 public class ModEnchantments {
@@ -34,9 +30,7 @@ public class ModEnchantments {
                         Enchantment.dynamicCost(25, 7),
                         2,
                         EquipmentSlotGroup.MAINHAND))
-                .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
-                .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
-                        EnchantmentTarget.VICTIM, new LightningStrikerEnchantmentEffect()));
+                .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE)));
 
         register(context, FROST_HOOVES, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(ModTags.Items.HORSE_ARMOR_ENCHANTABLE),

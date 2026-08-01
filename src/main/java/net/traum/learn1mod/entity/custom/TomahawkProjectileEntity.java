@@ -51,7 +51,6 @@ public class TomahawkProjectileEntity extends AbstractArrow {
 
     @Override
     protected void onHitEntity(EntityHitResult result) {
-        super.onHitEntity(result);
         Entity entity = result.getEntity();
 
         if (!this.level().isClientSide) {
