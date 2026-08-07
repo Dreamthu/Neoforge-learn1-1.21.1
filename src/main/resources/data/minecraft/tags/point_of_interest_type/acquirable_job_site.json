@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "learn1mod:kaupen_poi",
+      "required": false
+    }
+  ]
+}

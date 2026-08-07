@@ -5,9 +5,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -84,6 +82,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.BLOODWOOD_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.BLOODWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        this.dropSelf(ModBlocks.CHAIR.get());
     }
 
     private LootTable.Builder bismuthOreDrops(Block block) {

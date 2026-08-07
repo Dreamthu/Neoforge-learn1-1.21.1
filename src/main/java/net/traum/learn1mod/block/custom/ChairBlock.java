@@ -57,6 +57,16 @@ public class ChairBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock())) {
+            level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true)
+                    .forEach(ChairEntity::discard);
+        }
+
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
             case NORTH -> Shapes.or(SEAT, BACK_NORTH);

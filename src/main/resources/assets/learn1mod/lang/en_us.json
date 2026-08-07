@@ -32,6 +32,8 @@
 
   "item.learn1mod.tomahawk": "Tomahawk",
 
+  "item.learn1mod.radiation_staff": "Radiation Staff",
+
   "block.learn1mod.bismuth_block": "Block of Bismuth",
   "block.learn1mod.bismuth_ore": "Bismuth Ore",
   "block.learn1mod.bismuth_deepslate_ore": "Deepslate Bismuth Ore",
@@ -62,6 +64,8 @@
   "block.learn1mod.bloodwood_sapling": "Bloodwood Sapling",
 
   "block.learn1mod.chair": "Chair",
+
+  "entity.minecraft.villager.learn1mod.kaupenger": "Kaupenger",
 
   "creativetab.learn1mod.bismuth_items": "Bismuth Items",
   "creativetab.learn1mod.bismuth_blocks": "Bismuth Blocks",

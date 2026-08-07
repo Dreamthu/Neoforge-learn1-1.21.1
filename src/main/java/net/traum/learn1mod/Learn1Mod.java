@@ -5,6 +5,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.traum.learn1mod.block.ModBlocks;
 import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.effect.ModEffects;
@@ -15,9 +16,13 @@ import net.traum.learn1mod.entity.client.GeckoRenderer;
 import net.traum.learn1mod.entity.client.TomahawkProjectileRenderer;
 import net.traum.learn1mod.item.ModCreativeModeTabs;
 import net.traum.learn1mod.item.ModItems;
+import net.traum.learn1mod.loot.ModLootModifiers;
+import net.traum.learn1mod.particle.BismuthParticles;
+import net.traum.learn1mod.particle.ModParticles;
 import net.traum.learn1mod.potion.ModPotions;
 import net.traum.learn1mod.sound.ModSounds;
 import net.traum.learn1mod.util.ModItemProperties;
+import net.traum.learn1mod.villager.ModVillagers;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -69,6 +74,11 @@ public class Learn1Mod {
         ModEnchantmentEffects.register(modEventBus);
         ModEntities.register(modEventBus);
 
+        ModVillagers.register(modEventBus);
+        ModParticles.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -105,6 +115,11 @@ public class Learn1Mod {
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
         }
     }
 }

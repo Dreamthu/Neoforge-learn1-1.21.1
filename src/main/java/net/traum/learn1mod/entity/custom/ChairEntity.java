@@ -11,6 +11,20 @@ public class ChairEntity extends Entity {
         super(entityType, level);
     }
 
+//    @Override
+//    public void tick() {
+//        super.tick();
+//
+//        if (!this.level().isClientSide && !this.level().getBlockState(this.blockPosition()).is(ModBlocks.CHAIR.get())) {
+//            this.discard();
+//        }
+//    }
+
+    @Override
+    public boolean shouldBeSaved() {
+        return false;
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
 
@@ -29,6 +43,6 @@ public class ChairEntity extends Entity {
     @Override
     protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
-        this.kill();
+        this.discard();
     }
 }

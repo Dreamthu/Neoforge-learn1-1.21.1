@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.traum.learn1mod.item.ModItems;
+import net.traum.learn1mod.particle.ModParticles;
 import net.traum.learn1mod.util.ModTags;
 
 import java.util.List;
@@ -31,6 +31,10 @@ public class MagicBlock extends Block {
         if (!player.getMainHandItem().isEmpty()) {
             return InteractionResult.PASS;
         }
+
+        level.addParticle(ModParticles.BISMUTH_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5,
+                0, 1, 0);
+
         level.playSound(player, pos, SoundEvents.AMETHYST_CLUSTER_PLACE, SoundSource.BLOCKS, 1F, 1F);
         return InteractionResult.SUCCESS;
     }

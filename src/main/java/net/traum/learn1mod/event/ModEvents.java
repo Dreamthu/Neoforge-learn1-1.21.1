@@ -1,43 +1,47 @@
 package net.traum.learn1mod.event;
 
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.traum.learn1mod.Learn1Mod;
 import net.traum.learn1mod.enchantment.ModEnchantments;
+import net.traum.learn1mod.item.ModItems;
 import net.traum.learn1mod.item.custom.HammerItem;
 import net.traum.learn1mod.potion.ModPotions;
-import net.minecraft.world.item.ProjectileWeaponItem;
+import net.traum.learn1mod.villager.ModVillagers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -174,5 +178,38 @@ public class ModEvents {
                     Component.translatable("tooltip.learn1mod.slimey_potion")
                             .withStyle(ChatFormatting.DARK_GREEN));
         }
+    }
+
+    @SubscribeEvent
+    public static void addCustomTrades(VillagerTradesEvent event) {
+        if(event.getType() == ModVillagers.KAUPENGER.value()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 3),
+                    new ItemStack(ModItems.GOJI_BERRIES.get(), 18), 6, 3, 0.05f));
+
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.DIAMOND, 12),
+                    new ItemStack(ModItems.RADISH.get(), 1), 6, 3, 0.05f));
+
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.ENDER_PEARL, 1),
+                    new ItemStack(ModItems.RADISH_SEEDS.get(), 1), 2, 8, 0.05f));
+        }
+    }
+
+    @SubscribeEvent
+    public static void addWanderingTrades(WandererTradesEvent event) {
+        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
+
+        genericTrades.add((entity, randomSource) -> new MerchantOffer(
+                new ItemCost(Items.EMERALD, 16),
+                new ItemStack(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), 1), 1, 10, 0.2f));
+
+        rareTrades.add((entity, randomSource) -> new MerchantOffer(
+                new ItemCost(Items.NETHERITE_INGOT, 1),
+                new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(), 1), 1, 10, 0.2f));
     }
 }
