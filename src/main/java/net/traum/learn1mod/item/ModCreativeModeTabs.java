@@ -77,6 +77,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLOODWOOD_SAPLING);
                         output.accept(ModBlocks.BLOODWOOD_LEAVES);
                         output.accept(ModBlocks.CHAIR);
+                        output.accept(ModBlocks.PEDESTAL);
                     }).build());
 
     public static void register(IEventBus eventBus) {

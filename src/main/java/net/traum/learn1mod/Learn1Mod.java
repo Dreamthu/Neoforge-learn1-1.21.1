@@ -1,12 +1,26 @@
 package net.traum.learn1mod;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.traum.learn1mod.block.ModBlocks;
+import net.traum.learn1mod.block.entity.ModBlockEntities;
+import net.traum.learn1mod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.traum.learn1mod.component.ModDatacomponents;
 import net.traum.learn1mod.effect.ModEffects;
 import net.traum.learn1mod.enchantment.ModEnchantmentEffects;
@@ -20,22 +34,12 @@ import net.traum.learn1mod.loot.ModLootModifiers;
 import net.traum.learn1mod.particle.BismuthParticles;
 import net.traum.learn1mod.particle.ModParticles;
 import net.traum.learn1mod.potion.ModPotions;
+import net.traum.learn1mod.screen.ModMenuTypes;
+import net.traum.learn1mod.screen.custom.PedestalScreen;
 import net.traum.learn1mod.sound.ModSounds;
 import net.traum.learn1mod.util.ModItemProperties;
 import net.traum.learn1mod.villager.ModVillagers;
 import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
-
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Learn1Mod.MOD_ID)
@@ -78,6 +82,9 @@ public class Learn1Mod {
         ModParticles.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -120,6 +127,16 @@ public class Learn1Mod {
         @SubscribeEvent
         public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
         }
     }
 }
